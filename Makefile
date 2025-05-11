@@ -1,7 +1,14 @@
 CC = gcc
-CFLAGS = -g -Wall -Wextra -pedantic -std=c23
+CFLAGS_BASE = -Wall -Wextra -pedantic -std=c23
 INCLUDES = -Iinclude
 LD = ld
+
+# Set debug flags conditionally
+ifeq ($(MAKECMDGOALS),debug)
+    CFLAGS = $(CFLAGS_BASE) -g
+else
+    CFLAGS = $(CFLAGS_BASE)
+endif
 
 # Output directory
 OUTDIR = out
@@ -72,13 +79,12 @@ $(TARGET): $(OBJS)
 clean:
 	rm -rf $(OUTDIR)
 
-.PHONY: all clean
+.PHONY: all clean debug run
 
 # Run target
 run: $(TARGET)
 	./$(TARGET)
 
 # Debug target
-debug: $(TARGET)
+debug: clean $(TARGET)
 	gdb --args ./$(TARGET)
-	# gdb --args $(TARGET)
