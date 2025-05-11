@@ -25,13 +25,13 @@ int cu(cpu_t *cpu)
             cpu->pc++;
 
             if (reg1_index == NB_REGISTERS + 1 || reg2_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
 
             reg8_t *reg1 = (reg8_t *)&cpu->registers[reg1_index];
             reg8_t *reg2 = (reg8_t *)&cpu->registers[reg2_index];
 
             if (reg1 == reg2)
-            return 0;
+                return 0;
 
             cpu_mov8_rr(&cpu->flags, reg1, reg2);
             
@@ -43,7 +43,7 @@ int cu(cpu_t *cpu)
             cpu->pc++;
         
             if (reg_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
         
             reg8_t *reg = (reg8_t *)&cpu->registers[reg_index];
             byte value = (byte)cpu->memory[cpu->pc++];
@@ -59,13 +59,13 @@ int cu(cpu_t *cpu)
             cpu->pc++;
 
             if (reg1_index == NB_REGISTERS + 1 || reg2_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
 
             reg16_t *reg1 = (reg16_t *)&cpu->registers[reg1_index];
             reg16_t *reg2 = (reg16_t *)&cpu->registers[reg2_index];
 
             if (reg1 == reg2)
-            return 0;
+                return 0;
 
             cpu_mov16_rr(&cpu->flags, reg1, reg2);
             break;
@@ -76,7 +76,7 @@ int cu(cpu_t *cpu)
             cpu->pc++;
         
             if (reg_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
         
             reg16_t *reg = (reg16_t *)&cpu->registers[reg_index];
             word value = (word)cpu->memory[cpu->pc++];
@@ -92,13 +92,13 @@ int cu(cpu_t *cpu)
             cpu->pc++;
 
             if (reg1_index == NB_REGISTERS + 1 || reg2_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
 
             reg32_t *reg1 = (reg32_t *)&cpu->registers[reg1_index];
             reg32_t *reg2 = (reg32_t *)&cpu->registers[reg2_index];
 
             if (reg1 == reg2)
-            return 0;
+                return 0;
 
             cpu_mov32_rr(&cpu->flags, reg1, reg2);
             break;
@@ -109,7 +109,7 @@ int cu(cpu_t *cpu)
             cpu->pc++;
         
             if (reg_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
         
             reg32_t *reg = (reg32_t *)&cpu->registers[reg_index];
             dword value = (dword)cpu->memory[cpu->pc++];
@@ -125,13 +125,13 @@ int cu(cpu_t *cpu)
             cpu->pc++;
 
             if (reg1_index == NB_REGISTERS + 1 || reg2_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
 
             reg64_t *reg1 = (reg64_t *)&cpu->registers[reg1_index];
             reg64_t *reg2 = (reg64_t *)&cpu->registers[reg2_index];
 
             if (reg1 == reg2)
-            return 0;
+                return 0;
 
             cpu_mov64_rr(&cpu->flags, reg1, reg2);
             break;
@@ -142,7 +142,7 @@ int cu(cpu_t *cpu)
             cpu->pc++;
         
             if (reg_index == NB_REGISTERS + 1)
-            return -1;
+                return -1;
         
             reg64_t *reg = (reg64_t *)&cpu->registers[reg_index];
             qword value = (qword)cpu->memory[cpu->pc++];
